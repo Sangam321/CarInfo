@@ -1,10 +1,8 @@
-import 'package:carinfo/view/homepage_view';
-
+import 'package:carinfo/view/login_view.dart';
 import 'package:flutter/material.dart';
-import 'signup_view.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +23,9 @@ class LoginView extends StatelessWidget {
               ),
               const SizedBox(height: 60),
 
-              // Login to your Account Text
+              // Create an Account Text
               const Text(
-                'Login to your Account',
+                'Create an Account',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -40,7 +38,7 @@ class LoginView extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   filled: true,
                   fillColor: const Color.fromARGB(255, 248, 246, 246),
@@ -54,35 +52,37 @@ class LoginView extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   filled: true,
                   fillColor: const Color.fromARGB(255, 248, 246, 246),
                   suffixIcon: const Icon(Icons.visibility_off),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
 
-              // Forget Password
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Forget Password?',
-                    style: TextStyle(color: Colors.purple),
+              // Confirm Password TextField
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
+                  filled: true,
+                  fillColor: const Color.fromARGB(255, 248, 246, 246),
+                  suffixIcon: const Icon(Icons.visibility_off),
                 ),
               ),
               const SizedBox(height: 16),
 
-              // Sign In Button
+              // Sign Up Button
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePageView(),
+                      builder: (context) => const LoginView(),
                     ),
                   );
                 },
@@ -94,7 +94,7 @@ class LoginView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: const Text(
-                  'Sign In',
+                  'Sign Up',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -103,22 +103,22 @@ class LoginView extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Sign Up Text
+              // Already Have an Account Text
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account? "),
+                  const Text("Already have an account? "),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUpView(),
+                          builder: (context) => const LoginView(),
                         ),
                       );
                     },
                     child: const Text(
-                      'Sign Up',
+                      'Sign In',
                       style: TextStyle(color: Colors.purple),
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_view.dart';
 
 class BoardingView extends StatelessWidget {
   const BoardingView({super.key});
@@ -24,7 +25,7 @@ class BoardingView extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
-                color: Colors.grey,
+                color: Color.fromARGB(255, 130, 129, 129),
               ),
               textAlign: TextAlign.center,
             ),
@@ -34,12 +35,16 @@ class BoardingView extends StatelessWidget {
             // Get Started Button
             ElevatedButton(
               onPressed: () {
-                // Action for the button
-                const Text('Get Started pressed');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginView(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -48,7 +53,7 @@ class BoardingView extends StatelessWidget {
               child: const Text(
                 'Get Started',
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 12.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
