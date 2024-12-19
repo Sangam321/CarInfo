@@ -5,94 +5,114 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Image.asset('assets/images/logo.png', height: 60),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search vehicle',
-                        prefixIcon: Icon(Icons.search),
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 239, 239, 239),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.horizontal(
-                              left: Radius.circular(10)),
-                          borderSide: BorderSide.none,
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFF5F3F8),
+          automaticallyImplyLeading: false,
+          title: Image.asset('assets/images/logo.png', height: 60),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.notifications, color: Colors.black),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search vehicle',
+                          prefixIcon: Icon(Icons.search),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 239, 234, 248),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 18, vertical: 16),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(10)),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF390050),
-                      borderRadius:
-                          BorderRadius.horizontal(right: Radius.circular(10)),
-                    ),
-                    child: TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.filter_list, color: Colors.white),
-                      label: const Text('Filter',
-                          style: TextStyle(color: Colors.white)),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
-                        minimumSize: Size.zero, // Removes extra padding
-                        tapTargetSize: MaterialTapTargetSize
-                            .shrinkWrap, // Tight button size
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF390050),
+                        borderRadius:
+                            BorderRadius.horizontal(right: Radius.circular(10)),
+                      ),
+                      child: TextButton.icon(
+                        onPressed: () {},
+                        icon:
+                            const Icon(Icons.filter_list, color: Colors.white),
+                        label: const Text('Filter',
+                            style: TextStyle(color: Colors.white)),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
                       ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 25),
+                SizedBox(
+                  height: 500,
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: [
+                      _buildVehicleCategory(
+                          'Sports Cars', 'assets/images/sports.png'),
+                      const SizedBox(height: 22),
+                      _buildVehicleCategory(
+                          'SUVs Cars', 'assets/images/suv.png'),
+                      const SizedBox(height: 22),
+                      _buildVehicleCategory(
+                          'ELECTRIC Cars', 'assets/images/electric.png'),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildVehicleCategory(
+                          'ELECTRIC Cars', 'assets/images/electric.png'),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(height: 25),
-              _buildVehicleCategory('Sports Cars', 'assets/images/sports.png'),
-              const SizedBox(height: 22),
-              _buildVehicleCategory('SUVs Cars', 'assets/images/suv.png'),
-              const SizedBox(height: 22),
-              _buildVehicleCategory(
-                  'ELECTRIC Cars', 'assets/images/electric.png'),
-              const SizedBox(height: 20),
-              const Text(
-                'Brands',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              _buildBrandsRow(),
-            ],
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Brands',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                _buildBrandsRow(),
+              ],
+            ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: 'Favorite'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-        selectedItemColor: const Color(0xFF390050),
-        unselectedItemColor: Colors.grey,
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.compare_sharp), label: 'Compare'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: 'Favorite'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          ],
+          selectedItemColor: const Color(0xFF390050),
+          unselectedItemColor: Colors.grey,
+        ),
       ),
     );
   }
@@ -116,7 +136,7 @@ class HomePageView extends StatelessWidget {
             title,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 28, // Adjust font size as needed
+              fontSize: 28,
               fontFamily: 'SFProDisplay',
               fontWeight: FontWeight.bold,
             ),
