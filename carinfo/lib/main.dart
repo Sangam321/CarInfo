@@ -1,9 +1,11 @@
-import 'package:carinfo/view/login_view.dart';
+import 'package:carinfo/core/app_theme/common/app_theme.dart';
+import 'package:carinfo/view/boarding_view.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: LoginView(),
+    home: const BoardingView(),
+    theme: getApplicationTheme(),
   ));
 }

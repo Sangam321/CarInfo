@@ -1,4 +1,7 @@
+import 'package:carinfo/bottom_screen/dashboard.dart';
 import 'package:flutter/material.dart';
+
+import 'signup_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -75,7 +78,14 @@ class LoginView extends StatelessWidget {
 
               // Sign In Button
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Dashboard(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF390050),
                   shape: RoundedRectangleBorder(
@@ -99,7 +109,14 @@ class LoginView extends StatelessWidget {
                 children: [
                   const Text("Don't have an account? "),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpView(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'Sign Up',
                       style: TextStyle(color: Colors.purple),
