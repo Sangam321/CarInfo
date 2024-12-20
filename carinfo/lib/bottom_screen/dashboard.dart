@@ -31,6 +31,17 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Image.asset('assets/images/logo.png', height: 60),
+          centerTitle: false,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.notifications, color: Colors.black),
+              onPressed: () {},
+            ),
+          ],
+        ),
         body: _bottomScreens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
