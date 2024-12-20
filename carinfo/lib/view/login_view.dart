@@ -30,7 +30,7 @@ class LoginView extends StatelessWidget {
                 'Login to your Account',
                 style: TextStyle(
                   fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 20),
