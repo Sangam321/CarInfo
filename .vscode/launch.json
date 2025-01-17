@@ -5,21 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "carinfo",
-            "cwd": "carinfo",
+            "name": "Carinfo_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "carinfo (profile mode)",
-            "cwd": "carinfo",
+            "name": "Carinfo_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "carinfo (release mode)",
-            "cwd": "carinfo",
+            "name": "Carinfo_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
